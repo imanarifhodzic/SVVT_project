@@ -11,7 +11,7 @@ public class SimpleTest {
     @BeforeEach
     void setup() {
         System.setProperty("webdriver.chrome.driver",
-                "/Users/iman/Downloads/WebDriver/chromedriver");
+                "C:/Users/Luka/Desktop/WebDriver/chromedriver.exe");
 
 
         driver = new ChromeDriver();
@@ -23,6 +23,7 @@ public class SimpleTest {
         Assertions.assertEquals("Google", driver.getTitle(), "Title does not match!");
         System.out.println(driver.getTitle() + " is the title of the page.");
     }
+
 
     @AfterEach
     void tearDown() {
