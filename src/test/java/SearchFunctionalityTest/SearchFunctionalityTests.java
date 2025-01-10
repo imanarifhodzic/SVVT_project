@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//SEARCH TEST SCENARIO
+//SEARCH FUNCTIONALITY TEST SCENARIO
 public class SearchFunctionalityTests {
 
     private static WebDriver driver;
