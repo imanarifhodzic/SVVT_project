@@ -1,5 +1,3 @@
-package SearchFunctionalityTest;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -131,7 +129,7 @@ public class SearchFunctionalityTests {
     void noResultSearch(){
         driver.get("https://books.ba/");
         WebElement searchBar = driver.findElement(By.id("search-area259"));
-        searchBar.sendKeys("Bible"); // Six Of Crows author
+        searchBar.sendKeys("Bible");
         WebElement searchIcon =
                 driver.findElement(By.xpath("/html/body/div[1]/header/div/div/div[2]/div[1]/div/form/div/div[2]/div"));
         searchIcon.click();
