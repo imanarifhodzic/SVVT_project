@@ -14,9 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class EnforcingHTTPSTests {
 
     private static WebDriver driver;
-    private static String baseUrl;
-
-
+    private static String baseUrl = "https://books.ba/";
 
 
     @BeforeAll
@@ -25,7 +23,6 @@ public class EnforcingHTTPSTests {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-        baseUrl = "https://books.ba/";
         driver.manage().window().maximize();
     }
 
@@ -36,7 +33,7 @@ public class EnforcingHTTPSTests {
     }
 
     @Test
-    void mixedContentVerification() { //Insecure resource found: http:// www.joomshaper.com/
+    void mixedContentVerification() { //Insecure resource found: http://www. joomshaper.com/
         driver.get(baseUrl);
         //getting all elements that have src or href attributes
         List<WebElement> elements = driver.findElements(By.xpath("//*[@src or @href]"));

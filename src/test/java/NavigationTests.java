@@ -15,7 +15,7 @@ public class NavigationTests {
 
 
     private static WebDriver driver;
-    private static String baseUrl;
+    private static String baseUrl = "https://books.ba/";
 
 
 
@@ -26,7 +26,6 @@ public class NavigationTests {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-        baseUrl = "https://books.ba/";
         driver.manage().window().maximize();
     }
 

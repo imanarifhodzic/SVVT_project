@@ -1,16 +1,13 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class RegistrationAndLoginTests {
+public class RegistrationTests {
 
     private static WebDriver driver;
-
+    private static String baseUrl = "https://books.ba/";
 
 
     @BeforeAll
@@ -19,17 +16,13 @@ public class RegistrationAndLoginTests {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-
         driver.manage().window().maximize();
     }
 
-    @Test
-    void userRegistrationValidInputs(){ //TODO skontaj ovo zivota ti i razdvoji login i register kao dva test scenarija
-        driver.get("https://books.ba/knjizara/korisnik");
+    //caocaozdravo123  brate nece da se registruje prelosa stranica
 
-        WebElement email = driver.findElement(By.id("email_field"));
 
-    }
+
 
 
     @AfterAll

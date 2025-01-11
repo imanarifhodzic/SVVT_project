@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SearchFunctionalityTests {
 
     private static WebDriver driver;
+    private static String baseUrl = "https://books.ba/";
 
 
     @BeforeAll
@@ -26,7 +27,7 @@ public class SearchFunctionalityTests {
 
     @Test
     void searchForBook() throws InterruptedException {
-        driver.get("https://books.ba/");
+        driver.get(baseUrl);
         WebElement searchBar = driver.findElement(By.id("search-area259"));
         searchBar.sendKeys("Six of Crows");
         WebElement searchIcon =
@@ -44,7 +45,7 @@ public class SearchFunctionalityTests {
 
     @Test
     void searchFullTitleOfBook() throws InterruptedException { //FAIL for some reason, if we searched only
-        driver.get("https://books.ba/");                       //"Six of Crows", the search would be a success
+        driver.get(baseUrl);                                   //"Six of Crows", the search would be a success
         WebElement searchBar = driver.findElement(By.id("search-area259"));
         searchBar.sendKeys("Six of Crows: Collector's Edition (Book 1)");
         WebElement searchIcon =
@@ -63,7 +64,7 @@ public class SearchFunctionalityTests {
 
     @Test
     void searchBookThroughDropdown() throws InterruptedException {
-        driver.get("https://books.ba/");
+        driver.get(baseUrl);
 
         WebElement searchBar = driver.findElement(By.id("search-area259"));
         searchBar.sendKeys("Six of Crows: Collector's Edition");
@@ -77,7 +78,7 @@ public class SearchFunctionalityTests {
 
     @Test
     void searchByISBN() throws InterruptedException {
-        driver.get("https://books.ba/");
+        driver.get(baseUrl);
         WebElement searchBar = driver.findElement(By.id("search-area259"));
         searchBar.sendKeys("9781510106284"); // Six Of Crows again
         WebElement searchIcon =
@@ -93,7 +94,7 @@ public class SearchFunctionalityTests {
 
     @Test
     void searchByAuthor() throws InterruptedException { // FAIL doesn't display results
-        driver.get("https://books.ba/");
+        driver.get(baseUrl);
         WebElement searchBar = driver.findElement(By.id("search-area259"));
         searchBar.sendKeys("Leigh Bardugo"); // Six Of Crows author
         WebElement searchIcon =
@@ -107,7 +108,7 @@ public class SearchFunctionalityTests {
 
     @Test
     void searchByPublisher() throws InterruptedException {
-        driver.get("https://books.ba/");
+        driver.get(baseUrl);
         WebElement searchBar = driver.findElement(By.id("search-area259"));
         searchBar.sendKeys("Orion Books"); // Six Of Crows author
         WebElement searchIcon =
@@ -127,7 +128,7 @@ public class SearchFunctionalityTests {
 
     @Test
     void noResultSearch(){
-        driver.get("https://books.ba/");
+        driver.get(baseUrl);
         WebElement searchBar = driver.findElement(By.id("search-area259"));
         searchBar.sendKeys("Bible");
         WebElement searchIcon =
