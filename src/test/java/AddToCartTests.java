@@ -11,6 +11,7 @@ public class AddToCartTests extends SetupAndTearDown {
         driver.findElement(By.className("showcart")).click();
         Thread.sleep(1000);
     }
+
     @Test
     void addToCart() throws InterruptedException {
         driver.get(baseUrl);
