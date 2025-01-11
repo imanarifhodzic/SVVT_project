@@ -1,30 +1,14 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EnforcingHTTPSTests {
+public class EnforcingHTTPSTests extends SetupAndTearDown {
 
-    private static WebDriver driver;
-    private static String baseUrl = "https://books.ba/";
-
-
-    @BeforeAll
-    public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Luka/Desktop/WebDriver/chromedriver.exe"); //change pathname
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-    }
 
     @Test
     void enforceHTTPS() {
@@ -53,12 +37,5 @@ public class EnforcingHTTPSTests {
         }
     }
 
-    @AfterAll
-    public static void tearDown() {
-        // Close the browser
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 
 }

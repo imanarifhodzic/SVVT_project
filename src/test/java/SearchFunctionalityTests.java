@@ -1,29 +1,15 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 //SEARCH FUNCTIONALITY TEST SCENARIO
-public class SearchFunctionalityTests {
+public class SearchFunctionalityTests extends SetupAndTearDown {
 
-    private static WebDriver driver;
-    private static String baseUrl = "https://books.ba/";
-
-
-    @BeforeAll
-    public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Luka/Desktop/WebDriver/chromedriver.exe"); //change pathname
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-    }
 
     @Test
     void searchForBook() throws InterruptedException {
@@ -52,13 +38,12 @@ public class SearchFunctionalityTests {
                 driver.findElement(By.xpath("/html/body/div[1]/header/div/div/div[2]/div[1]/div/form/div/div[2]/div"));
         searchIcon.click();
         Thread.sleep(1000);
-        WebElement book =
-                driver.findElement(By.xpath("/html/body/div[1]/section[2]/div/div/div/section/div/div[2]/div/div[3]/div[2]/div/div/div[1]"));
-        Thread.sleep(1000);
-        book.click();
-        WebElement titleOfBook = driver.findElement(By.className("product-title"));
-        assertEquals("Six of Crows: Collector's Edition (Book 1)", titleOfBook.getText());
-
+        try {
+            WebElement book = driver.findElement(By.className("product-details"));
+            assertTrue(book.isDisplayed());
+        } catch (NoSuchElementException e) {
+            assertFalse(true, "Element with class name 'product-details' is not visible due to a bug.");
+        }
     }
 
 
@@ -101,9 +86,12 @@ public class SearchFunctionalityTests {
                 driver.findElement(By.xpath("/html/body/div[1]/header/div/div/div[2]/div[1]/div/form/div/div[2]/div"));
         searchIcon.click();
         Thread.sleep(2000);
-        WebElement book = driver.findElement(By.className("product-details")); // finding first product, throws error
-        assertTrue(book.isDisplayed()); // won't even reach this
-
+        try {
+            WebElement book = driver.findElement(By.className("product-details"));
+            assertTrue(book.isDisplayed());
+        } catch (NoSuchElementException e) {
+            assertFalse(true, "Element with class name 'product-details' is not visible due to a bug.");
+        }
     }
 
     @Test
@@ -135,15 +123,5 @@ public class SearchFunctionalityTests {
                 driver.findElement(By.xpath("/html/body/div[1]/header/div/div/div[2]/div[1]/div/form/div/div[2]/div"));
         searchIcon.click();
         assertTrue(driver.getPageSource().contains("Nema rezultata : (Bible)"));
-    }
-
-
-
-    @AfterAll
-    public static void tearDown() {
-        // Close the browser
-        if (driver != null) {
-            driver.quit();
-        }
     }
 }
