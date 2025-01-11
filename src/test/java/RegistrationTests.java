@@ -58,7 +58,6 @@ public class RegistrationTests extends SetupAndTearDown{
         )).click();
         try {
             Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
             alert.accept();
             String errorMessage =
                     driver.findElement(By.xpath(
