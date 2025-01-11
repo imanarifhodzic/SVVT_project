@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AddToCartTests extends SetupAndTearDown {
 
-    void addBook() throws InterruptedException {
+    static void addBook() throws InterruptedException {
         driver.findElement(By.name("addtocart")).click();
         Thread.sleep(1000);
         driver.findElement(By.className("showcart")).click();

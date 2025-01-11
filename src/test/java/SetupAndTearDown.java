@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,6 +10,7 @@ public class SetupAndTearDown {
 
     protected static WebDriver driver;
     protected static String baseUrl = "https://books.ba/";
+    JavascriptExecutor js = (JavascriptExecutor) driver;
 
     @BeforeAll
     public static void setUp() {
