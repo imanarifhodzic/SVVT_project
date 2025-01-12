@@ -19,14 +19,13 @@ public class RegistrationTests extends SetupAndTearDown{
         driver.findElement(By.id("first_name_field")).sendKeys("Iman");
         driver.findElement(By.id("last_name_field")).sendKeys("Arifhodzic");
         driver.findElement(By.id("address_1_field")).sendKeys("Titova 1");
-        driver.findElement(By.id("last_name_field")).sendKeys("Arifhodzic");
         driver.findElement(By.id("zip_field")).sendKeys("71000");
         driver.findElement(By.id("city_field")).sendKeys("Sarajevo");
         Select country = new Select(driver.findElement(By.id("virtuemart_country_id_field")));
         country.selectByValue("27");
         driver.findElement(By.id("phone_1_field")).sendKeys("123456789");
         //time to solve reCAPTCHA
-        Thread.sleep(15000);
+        Thread.sleep(25000);
         driver.findElement(By.xpath(
                 "/html/body/div[1]/section[2]/div/div/div/section/div/form/div[2]/button[1]"
         )).click();

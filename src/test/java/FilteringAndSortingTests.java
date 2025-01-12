@@ -10,8 +10,6 @@ public class FilteringAndSortingTests extends SetupAndTearDown {
     @Test
     void sortByDate() throws InterruptedException {
         driver.get(baseUrl + "knjizara/beletristika");
-
-
         driver.findElement(By.xpath(
                 "/html/body/div[1]/section[2]/div/div/div/section/div/div[2]/div/div[1]/div[1]/div[1]/div[2]/a"
         )).click();

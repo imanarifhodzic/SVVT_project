@@ -103,7 +103,6 @@ public class LanguageAndCurrencyTests extends SetupAndTearDown {
     @Test
     void changingCurrencyInCart() throws InterruptedException {
         driver.get(baseUrl);
-
         //adding a product to the cart
         WebElement product = driver.findElement(By.className("product-image-wrapper"));
         product.click();
@@ -112,7 +111,6 @@ public class LanguageAndCurrencyTests extends SetupAndTearDown {
         Thread.sleep(1000);
         driver.findElement(By.className("showcart")).click();
         Thread.sleep(1000);
-
         //changing currency to EUR
         BAMtoEuro();
 
@@ -121,16 +119,14 @@ public class LanguageAndCurrencyTests extends SetupAndTearDown {
                 "/html/body/div[1]/section[2]/div/div/div/section/div/div[3]/form/div/table/tbody/tr[1]/td[6]/div/span[2]"
         ));
         assertEquals("€", price.getText().substring(price.getText().length() - 1));
-
+        Thread.sleep(1000);
         //changing currency to BAM
         EuroToBAM();
-
         //redefining it again
         WebElement price2 =
                 driver.findElement(By.xpath(
                         "/html/body/div[1]/section[2]/div/div/div/section/div/div[3]/form/div/table/tbody/tr[1]/td[6]/div/span[2]"
                 ));
-
         assertEquals("KM", price2.getText().substring(price2.getText().length() - 2));
 
 

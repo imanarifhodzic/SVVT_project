@@ -98,7 +98,7 @@ public class SearchFunctionalityTests extends SetupAndTearDown {
     void searchByPublisher() throws InterruptedException {
         driver.get(baseUrl);
         WebElement searchBar = driver.findElement(By.id("search-area259"));
-        searchBar.sendKeys("Orion Books"); // Six Of Crows author
+        searchBar.sendKeys("Orion Books"); // Six Of Crows publisher
         WebElement searchIcon =
                 driver.findElement(By.xpath("/html/body/div[1]/header/div/div/div[2]/div[1]/div/form/div/div[2]/div"));
         searchIcon.click();
